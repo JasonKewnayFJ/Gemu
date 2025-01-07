@@ -1,0 +1,53 @@
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class ScenesManager : MonoBehaviour
+{
+    public static ScenesManager instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
+    public enum Scenes
+    {
+        MainMenu,
+        Level01,
+        Level02,
+        Level03,
+        Level04,
+        Level05,
+        Level06,
+        Level07,
+        Level08,
+        Level09,
+        Level10,
+    }
+
+    public void LoadScene(Scenes scene)
+    {
+        SceneManager.LoadScene(scene.ToString());
+    }
+
+    public void LoadNewGame()
+    {
+        SceneManager.LoadScene(Scene.Level01.ToString());
+    }
+
+    public void LoadNextScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene(Scene.MainMenu.ToString());
+    }
+
+    public void quitGame()
+    {
+        Application.Quit();
+    }
+    
+}
