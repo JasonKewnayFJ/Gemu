@@ -1,0 +1,51 @@
+using UnityEngine;
+
+public class AnimPlayer : MonoBehaviour
+{
+    private MoveSet moveSet;
+    private Animator anim;
+    private string _currentState;
+    private const string PLAYER_IDLE = "Player_idle";
+    private const string PLAYER_RUN = "Player_Running";
+    private const string PLAYER_JUMP = "Player_Jumping";
+    private const string PLAYER_FALL = "Player_Falling";
+    private const string PLAYER_WALK = "Player_walking";
+    private const string PLAYER_ATTACK1 = "Player_Attacking1";
+    private const string PLAYER_ATTACK2 = "Player_Attacking2";
+    private const string PLAYER_SPRINT = "Player_Sprinting";
+    private const string PLAYER_TAKEDAMAGE = "Player_TakingDamage";
+    private const string PLAYER_DEATH = "Player_Dying";
+    private const string PLAYER_DISCARDING = "Player_Discarding";
+
+    private bool _isGrounded;
+    private bool _isPlayerDead;
+    
+    
+    
+    void Awake()
+    {
+        anim = GetComponent<Animator>();
+    }
+    void ChangeAnimState(string state)
+    {
+        if (state == _currentState)
+        {
+            return;
+        }
+        
+        anim.Play(state);
+        _currentState = state;
+    }
+    void isAnimPlaying(Animator _anim, string state)
+    {
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName(state) &&
+            anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+}
