@@ -35,7 +35,7 @@ public class AnimPlayer : MonoBehaviour
         anim.Play(state);
         _currentState = state;
     }
-    void isAnimPlaying(Animator _anim, string state)
+    bool isAnimPlaying(Animator _anim, string state)
     {
         if (anim.GetCurrentAnimatorStateInfo(0).IsName(state) &&
             anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
