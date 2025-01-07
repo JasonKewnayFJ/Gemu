@@ -1,0 +1,44 @@
+float _speed = 5f;
+float _jumpForce = 20f;
+rotationSpeed = 720f;
+
+Vector3 movement;
+RigidBody _rb;
+Animator anim;
+
+void Awake()
+  {
+    _rb = GetComponent<RigidBody>();
+    anim = GetComponent<Animator>();
+  }
+
+void Update()
+  {
+    toMove();
+    toJump();
+  }
+
+void toMove()
+  {
+    float inputMoveZ = Input.GetAxisRaw("Vertical");
+    float inputMoveX = Input.GetAxisRaw("Horizontal");
+  
+    movement = new Vector3(inputMoveX, 0, inputMoveZ).normalized;
+  
+    if (movement.magnitude > 0)
+    {
+      Quaternion toRotation = Quaternion.LookRotation(movement, Vector3.up);
+      transform.rotation = Quaternion.RotateTowards(Vector3.forward * _speed * Time.deltaTime);
+    }
+  
+  }
+
+void toJump()
+  {
+    if (Input.GetKeyDown(KeyCode.Space))
+      {
+        _rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse)
+      }
+  
+  }
+}
