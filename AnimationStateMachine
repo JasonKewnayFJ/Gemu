@@ -2,23 +2,22 @@ using UnityEngine;
 
 public class AnimPlayer : MonoBehaviour
 {
-    private MoveSet moveSet;
-    private Animator anim;
-    private string _currentState;
-    private const string PLAYER_IDLE = "Player_idle";
-    private const string PLAYER_RUN = "Player_Running";
-    private const string PLAYER_JUMP = "Player_Jumping";
-    private const string PLAYER_FALL = "Player_Falling";
-    private const string PLAYER_WALK = "Player_walking";
-    private const string PLAYER_ATTACK1 = "Player_Attacking1";
-    private const string PLAYER_ATTACK2 = "Player_Attacking2";
-    private const string PLAYER_SPRINT = "Player_Sprinting";
-    private const string PLAYER_TAKEDAMAGE = "Player_TakingDamage";
-    private const string PLAYER_DEATH = "Player_Dying";
-    private const string PLAYER_DISCARDING = "Player_Discarding";
+    Animator anim;
+    string _currentState;
+    const string PLAYER_IDLE = "Player_idle";
+    const string PLAYER_RUN = "Player_Running";
+    const string PLAYER_JUMP = "Player_Jumping";
+    const string PLAYER_FALL = "Player_Falling";
+    const string PLAYER_WALK = "Player_walking";
+    const string PLAYER_ATTACK1 = "Player_Attacking1";
+    const string PLAYER_ATTACK2 = "Player_Attacking2";
+    const string PLAYER_SPRINT = "Player_Sprinting";
+    const string PLAYER_TAKEDAMAGE = "Player_TakingDamage";
+    const string PLAYER_DEATH = "Player_Dying";
+    const string PLAYER_DISCARDING = "Player_Discarding";
 
-    private bool _isGrounded;
-    private bool _isPlayerDead;
+    bool _isGrounded;
+    bool _isPlayerDead;
     
     
     
